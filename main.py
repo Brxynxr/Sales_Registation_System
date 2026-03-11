@@ -1,2 +1,1 @@
-
-Saldo = 100
+from archivos import registroV, Ctotal, resumen
