@@ -1,67 +1,64 @@
-# creamos una lista vacía donde se guardará toda la información de las ventas registradas
-listaV = []
+# We create an empty list where all sales information will be stored
+salesList = []
 
-# creamos una función que se encarga de solicitar y almacenar la información de cada venta
-def registroV(): 
-    # Le preguntamos al usuario si desea registrar una venta
-    venta = input("desea registrar una venta?: si/no ").lower()
+# Function responsible for requesting and storing the information of each sale
+def registerSale(): 
+    # We ask the user if they want to register a sale
+    answer = input("Do you want to register a sale?: yes/no ").lower()
     
-    # El bucle se repetira mientras el usuario responda "si"
-    while venta == "si":
-        print("\n-----REGISTRO DE NUEVA VENTA-----\n")
+    # The loop will repeat as long as the user answers "yes"
+    while answer == "yes":
+        print("\n-----NEW SALE REGISTRATION-----\n")
         
-        # Usamos try/except para evitar que el programa se rompa si el usuario ingresa datos incorrectos
+        # We use try/except to prevent the program from crashing if the user enters incorrect data
         try:
-            # Solicitamos los datos del producto
-            nombre = input("ingrese el producto que desea comprar: ")
-            precio = float(input("ingrese precio por unidad: "))
-            cantidad = int(input("ingrese la cantidad de productos: "))
+            # We request the product data
+            name = input("Enter the product name: ")
+            price = float(input("Enter the price per unit: "))
+            quantity = int(input("Enter the quantity of products: "))
             
-            # Creamos un diccionario con la información de la venta
-            nuevaVenta = {
-                "producto": nombre, 
-                "cantidad": cantidad, 
-                "subtotal": precio * cantidad
-                }
+            # We create a dictionary with the sale information
+            newSale = {
+                "product": name,
+                "quantity": quantity,
+                "subtotal": price * quantity
+            }
             
-            # Agregamos el diccionario a la lista de ventas
-            listaV.append(nuevaVenta)
+            # We add the dictionary to the sales list
+            salesList.append(newSale)
             
-        # Si el usuario ingresa letras donde van números, capturamos el error
+        # If the user enters letters where numbers are expected, we catch the error
         except ValueError:
-            print("Error: informacion invalida")
+            print("Error: invalid information")
             
-        # Preguntamos si desea registrar otra venta para continuar o salir del bucle
-        venta = input("desea registrar otra venta?: si/no ").lower()
+        # We ask if they want to register another sale to continue or exit the loop
+        answer = input("Do you want to register another sale?: yes/no ").lower()
+
+# Function that goes through the list and adds all subtotals to get the grand total
+def calculateTotal():
+    grandTotal = 0
+    # We go through each sale registered in the list
+    for sale in salesList:
+        grandTotal += sale["subtotal"]  # We add each sale's subtotal to the accumulator
+    return grandTotal  # We return the calculated total
 
 
-# función que recorre la lista y suma todos los subtotales para obtener el total general
-def Ctotal():
-    totalG = 0  # iniciamos el acumulador en 0
+# Function that displays a complete summary of all sales on screen
+def summary():
+    print("\n-----SALES SUMMARY-----\n")
     
-    # recorremos cada venta registrada en la lista
-    for venta in listaV:
-        totalG += venta["subtotal"]  # sumamos el subtotal de cada venta al acumulador
-        
-    return totalG  # retornamos el total calculado
-
-
-# creamos una función que muestra en pantalla el resumen completo de todas las ventas
-def resumen():
-    print("\n-----RESUMEN DE VENTAS-----\n")
+    # We go through the list and print each sale's data
+    for sale in salesList:
+        print(f"Product:  {sale['product']}")
+        print(f"Quantity: {sale['quantity']}")
+        print(f"Subtotal: {sale['subtotal']}")
     
-    # recorremos la lista e imprimimos los datos de cada venta
-    for venta in listaV:
-        print(f"producto: {venta['producto']}")
-        print(f"cantidad: {venta['cantidad']}")
-        print(f"subtotal: {venta['subtotal']}")
-    
-    # llamamos a Ctotal() para obtener la suma de todas las ventas
-    total = Ctotal()
-    print(f"\nTOTAL RECAUDADO: {total}\n")
+    # We call calculateTotal() to get the sum of all sales
+    total = calculateTotal()
+    print(f"\nTOTAL COLLECTED: {total}\n")
 
 
-# ---- EJECUCIÓN DEL PROGRAMA ----
-registroV()
-Ctotal()
-resumen()
+# ---- PROGRAM EXECUTION ----
+registerSale()
+calculateTotal()
+summary()
