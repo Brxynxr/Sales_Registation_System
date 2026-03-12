@@ -49,8 +49,10 @@ def summary():
     
     # We go through the list and print each sale's data
     for sale in salesList:
+        print ("-----------------------------")
         print(f"Product:  {sale['product']}")
         print(f"Quantity: {sale['quantity']}")
+        print(f"price per unit: {sale['subtotal'] / sale['quantity']}")
         print(f"Subtotal: {sale['subtotal']}")
     
     # We call calculateTotal() to get the sum of all sales
