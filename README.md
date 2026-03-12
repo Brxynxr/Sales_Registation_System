@@ -52,3 +52,6 @@ TOTAL COLLECTED: 10.0
 - **registerSale():** asks the user for sale data and stores it in the list
 - **calculateTotal():** adds all subtotals and returns the grand total
 - **summary():** prints all registered sales and the total collected
+
+## Repositoy's link
+  https://github.com/Brxynxr/Sales_Registation_System
