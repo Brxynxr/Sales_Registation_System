@@ -1,57 +1,45 @@
-# Sales Registration System
+# Sales Register
 
-This is a program that allows you to register yhe sales of a store during the day, entering the product name, price and quantity of each sale, At the end it shows a summary whith all the products sold and the total money collected.
+A Python console application that registers product sales, calculates subtotals, and displays a full sales summary.
 
-## What does the program do?
+## Description
 
-- Registers sales one by one until the user decides to stop
-- Stores each sale (product, quantity, subtotal) in a dictionary inside a list
-- Calculates the grand total of all sales
-- Shows a complete summary at the end
+This project is a command-line sales tracking tool. It is designed to help users record multiple product sales interactively. The program is structured around three core functions that handle data entry, calculation, and reporting. It uses a list of dictionaries to store each sale's data in memory during execution.
+
+## How It Works
+
+1. The program starts by calling `registerSale()`, which prompts the user to enter product details in a loop.
+2. For each sale, the user provides the product name, price per unit, and quantity. The subtotal is calculated automatically.
+3. Each sale is stored as a dictionary inside the `salesList` global list.
+4. Once the user finishes registering sales, `calculateTotal()` iterates through the list and sums all subtotals.
+5. Finally, `summary()` prints a formatted breakdown of every sale and displays the grand total collected.
 
 ![architecturediagram](DiagramaBdrawio.drawio.png)
 
-## How to run it?
+## Status
 
-1. Have Python installed
-2. Run the file with:
-```
-python sales.py
-```
+> The program is currently in its initial functional version. It is running correctly for basic sales registration and summary reporting. Future improvements may include file export (CSV/JSON), input validation enhancements, and a graphical interface.
 
-## Example usage
-```
-Do you want to register a sale?: yes/no yes
+---
 
------NEW SALE REGISTRATION-----
+### Dependencies
 
-Enter the product name: Notebook
-Enter the price per unit: 2.50
-Enter the quantity of products: 4
-Do you want to register another sale?: yes/no no
-```
+- Python 3.x
+- No external libraries are required — the program uses only built-in Python features.
 
-## Example output
-```
------SALES SUMMARY-----
+### Installing
 
-Product:  Notebook
-Quantity: 4
-Subtotal: 10.0
+- Download or clone the repository to your local machine.
+- No additional configuration of files or folders is needed.
 
-TOTAL COLLECTED: 10.0
+### Executing program
+
+Run the script from your terminal:
+
+```bash
+python archivos.py
 ```
 
-## Validations
-
-- If letters are entered where a number is expected, the program shows an error and continues
-- The loop only continues if the user types "yes"
-
-## Functions
-
-- **registerSale():** asks the user for sale data and stores it in the list
-- **calculateTotal():** adds all subtotals and returns the grand total
-- **summary():** prints all registered sales and the total collected
-
-## Repositoy's link
-  https://github.com/Brxynxr/Sales_Registation_System
+- The program will ask if you want to register a sale.
+- Type `yes` to enter a product name, price, and quantity.
+- Type `no` when you are done to see the full sales summary.
