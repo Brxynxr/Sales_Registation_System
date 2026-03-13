@@ -9,7 +9,7 @@ This is a program that allows you to register yhe sales of a store during the da
 - Calculates the grand total of all sales
 - Shows a complete summary at the end
 
-
+![architecturediagram](DiagramaBdrawio.drawio.png)
 
 ## How to run it?
 
