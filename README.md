@@ -1,6 +1,6 @@
 # Sales Registration System
 
-Program in Python to register sales and calculate the total collected.
+This is a program that allows you to register yhe sales of a store during the day, entering the product name, price and quantity of each sale, At the end it shows a summary whith all the products sold and the total money collected.
 
 ## What does the program do?
 
@@ -9,7 +9,7 @@ Program in Python to register sales and calculate the total collected.
 - Calculates the grand total of all sales
 - Shows a complete summary at the end
 
-<img width="651" height="556" alt="diagramaB drawio" src="https://github.com/user-attachments/assets/ece472db-ecab-496c-8eb2-09b11dff332b" />
+
 
 ## How to run it?
 
